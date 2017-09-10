@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.API.Autonomous;
+package org.firstinspires.ftc.teamcode.FTC_API.Autonomous;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.API.Robot.Robot;
+import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

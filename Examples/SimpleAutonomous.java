@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.API.Examples;
+package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.API.Autonomous.AutonomousBase;
-import org.firstinspires.ftc.teamcode.API.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.AutonomousBase;
+import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -34,6 +34,6 @@ public class SimpleAutonomous extends OpMode {
     public void loop() {
         auto.loop();
 
-        telemetry.addData("Test", bot.drive.leftMotor.getPower());
+        telemetry.addData("Test", bot.drive.leftMotor.getPower());//Add telemetry
     }
 }

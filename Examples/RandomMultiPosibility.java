@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.API.Examples;
+package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
-import org.firstinspires.ftc.teamcode.API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.API.Options;
+import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_API.Options;
 
 import java.util.Random;
 

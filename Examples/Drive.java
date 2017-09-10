@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.API.Examples;
+package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
 
-import org.firstinspires.ftc.teamcode.API.Options;
-import org.firstinspires.ftc.teamcode.API.Robot.SubSystems.SubSystem;
+import org.firstinspires.ftc.teamcode.FTC_API.Options;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SubSystem;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

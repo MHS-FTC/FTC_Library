@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.API.Autonomous.Modules;
+package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
 
-import org.firstinspires.ftc.teamcode.API.Options;
-import org.firstinspires.ftc.teamcode.API.Robot.Robot;
+import org.firstinspires.ftc.teamcode.FTC_API.Options;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

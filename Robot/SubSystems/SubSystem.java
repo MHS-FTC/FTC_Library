@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode.API.Robot.SubSystems;
+package org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.API.Options;
+import org.firstinspires.ftc.teamcode.FTC_API.Options;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
