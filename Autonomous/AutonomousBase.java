@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.FTC_API.Autonomous;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -12,12 +12,12 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
  */
 
 public class AutonomousBase {
-    public Robot robot;
+    public RobotBase robot;
     private Module[][] steps;
     private int currentStep = 0;
     private int currentPosition = 0;
 
-    public void init(HardwareMap map, Robot robot, Module[][] steps) {
+    public void init(HardwareMap map, RobotBase robot, Module[][] steps) {
         robot.init(map);//starts and initializes the robot
         robot.start();
         this.steps = steps;
@@ -73,7 +73,7 @@ public class AutonomousBase {
 
     }
 
-    public Robot getRobot() {
+    public RobotBase getRobot() {
         return robot;
     }
 

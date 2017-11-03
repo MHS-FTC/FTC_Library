@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Options;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -10,9 +10,9 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.Robot;
  */
 
 public abstract class Module {
-    protected Robot robot;
+    protected RobotBase robot;
 
-    public void init(Robot robot) {
+    public void init(RobotBase robot) {
         this.robot = robot;
     }
 

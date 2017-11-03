@@ -46,7 +46,12 @@ public class Options {
 
     //get one option from the options hashmap
     public String get(String key){
-        return options.get(key);
+        String get = options.get(key);
+        if (get == null) {
+            return "";
+        } else {
+            return get;
+        }
     }
 
     //gets name of module, subsystem or other system using this configuration

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * Created by Ethan Hampton on 8/19/17.
  *
- * Shows example of how to do a simple telop method
+ * Shows example of how to do a simple teleop method
  */
 @Disabled
 @TeleOp(name = "SimpleTeleop")

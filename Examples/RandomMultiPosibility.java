@@ -11,7 +11,7 @@ import java.util.Random;
  * Simple drive for time module
  */
 
-public class RandomMultiPosibility extends Module {
+class RandomMultiPosibility extends Module {
     private Options options = new Options("Random");
 
     @Override

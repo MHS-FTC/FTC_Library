@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.FTC_API.Options;
  * Simple drive for time module
  */
 
-public class DriveTime extends Module {
+class DriveTime extends Module {
     private Options options = new Options("Drive For Time");
     private Drive drive;
     private boolean isDone = false;
