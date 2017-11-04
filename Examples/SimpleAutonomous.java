@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.AutonomousBase;
+import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.CallFunction;
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
 
 /**
@@ -18,7 +19,9 @@ public class SimpleAutonomous extends OpMode {
     private SimpleRobot bot = new SimpleRobot();
     private final Module[][] steps = new Module[][]{
             {new DriveTime().setSpeeds(1, 1).setTime(2000)},
-            {new DriveTime().setSpeeds(0.5, 1).setTime(2500)},
+            {new DriveTime().setSpeeds(0.5, 0.9).setTime(2500)},
+            {new CallFunction().setFunction(() -> bot.drive.drive(1,1))},
+            {new CallFunction().setFunction(() -> bot.drive.drive(0,0))},
 
 
             {new RandomMultiPosibility()},
