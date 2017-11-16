@@ -30,7 +30,7 @@ public class SimpleAutonomous extends OpMode {
 
     @Override
     public void init() {
-        auto.init(hardwareMap, bot, steps);
+        //auto.init(hardwareMap, bot, steps); //fixme i broke this to make it work
     }
 
     @Override

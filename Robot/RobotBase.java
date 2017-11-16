@@ -18,8 +18,8 @@ import java.util.HashSet;
 
 public class RobotBase {
 
-    private HashMap<String, SubSystem> subSystems = new HashMap<>();
-    private HashSet<String> needsTick = new HashSet<>();
+    private HashMap<String, SubSystem> subSystems = new HashMap<String, SubSystem>();
+    private HashSet<String> needsTick = new HashSet<String>();
 
     private ElapsedTime time = new ElapsedTime();
 
@@ -60,6 +60,7 @@ public class RobotBase {
                 subSystems.values()) {
             s.start();
         }
+        startTime();
     }
 
     //called to stop all subsystems
@@ -81,6 +82,7 @@ public class RobotBase {
                 sub.tick();
             }
         }
+
     }
 
     public void startTime(){

@@ -17,10 +17,13 @@ public class AutonomousBase {
     private int currentStep = 0;
     private int currentPosition = 0;
 
+    private boolean isFirstLoop = true;
+
     public void init(HardwareMap map, RobotBase robot, Module[][] steps) {
         robot.init(map);//starts and initializes the robot
         robot.start();
         this.steps = steps;
+        this.robot = robot;
     }
 
     public void loop() {
@@ -61,8 +64,14 @@ public class AutonomousBase {
 
         //old way of doing things
         Module current = steps[currentStep][currentPosition];// loads current running module
+        if(isFirstLoop){
+            current.init(robot);
+            current.start();
+            isFirstLoop = false;
+        }
         current.tick();//runs tick for current module
         if (current.isDone()) {//if the current module is done
+            currentPosition = 0;
             currentPosition = current.stop();//stop it
 
             currentStep++;//get new module, start and initialize it
