@@ -23,6 +23,7 @@ public class AutonomousBase {
         robot.init(map);//starts and initializes the robot
         robot.start();
         this.steps = steps;
+        //This was too hard
         this.robot = robot;
     }
 
