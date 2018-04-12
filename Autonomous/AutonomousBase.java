@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Autonomous;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
-
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
@@ -13,9 +13,12 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
 public class AutonomousBase {
     public RobotBase robot;
+    private Telemetry telemetry = null;
     private Module[][] steps;
-    private int currentStep = 0;
+    private int currentStep = 0;//zero indexed
     private int currentPosition = 0;
+    private int totalSteps;
+    private boolean isDone = false;
 
     private boolean isFirstLoop = true;
 
@@ -23,6 +26,7 @@ public class AutonomousBase {
         robot.init(map);//starts and initializes the robot
         robot.start();
         this.steps = steps;
+        totalSteps = steps.length;
         //This was too hard
         this.robot = robot;
     }
@@ -62,29 +66,46 @@ public class AutonomousBase {
         }
         */
 
+        if (!isDone) {
+            //old way of doing things
+            Module current = steps[currentStep][currentPosition];// loads current running module
+            if (isFirstLoop) {
+                current.init(robot, 0, telemetry);
+                current.start();
+                isFirstLoop = false;
+            }
+            current.tick();//runs tick for current module
+            if (current.isDone()) {//if the current module is done
+                currentStep++;//get new module, start and initialize it
 
-        //old way of doing things
-        Module current = steps[currentStep][currentPosition];// loads current running module
-        if(isFirstLoop){
-            current.init(robot);
-            current.start();
-            isFirstLoop = false;
+                currentPosition = 0;
+                currentPosition = current.stop();//stop it and get the where the module wants the next step to go
+                int maxPosition = steps[currentStep].length - 1;//get amount of modules currently available in the next step
+                int position;
+                if (currentPosition > maxPosition) {//if the current position does not exist then set it to 0
+                    position = 0;
+                } else {
+                    position = currentPosition;//otherwise just use the position given
+                }
+                if (currentStep <= (totalSteps - 1)) {//insures we have not gone through all our steps
+                    current = steps[currentStep][position];
+                    current.init(robot, currentPosition, telemetry);//initialize it with the passed through position so it can be passed through multiple times
+                    current.start();
+                } else {
+                    isDone = true;
+                }
+                currentPosition = position;//reset position, should be stored by module. This way we don't get any null errors when there is only one module to choose from
+            }
         }
-        current.tick();//runs tick for current module
-        if (current.isDone()) {//if the current module is done
-            currentPosition = 0;
-            currentPosition = current.stop();//stop it
-
-            currentStep++;//get new module, start and initialize it
-            current = steps[currentStep][currentPosition];
-            current.init(robot);
-            current.start();
-        }
-
     }
 
     public RobotBase getRobot() {
         return robot;
+    }
+
+    public AutonomousBase setTelemetry(Telemetry telemetry) {
+        this.telemetry = telemetry;
+        return this;
     }
 
 }

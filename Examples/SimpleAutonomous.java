@@ -20,8 +20,8 @@ public class SimpleAutonomous extends OpMode {
     private final Module[][] steps = new Module[][]{
             {new DriveTime().setSpeeds(1, 1).setTime(2000)},
             {new DriveTime().setSpeeds(0.5, 0.9).setTime(2500)},
-            {new CallFunction().setFunction(() -> bot.drive.drive(1,1))},
-            {new CallFunction().setFunction(() -> bot.drive.drive(0,0))},
+            {new CallFunction().setFunction(() -> bot.drive.drive(1, 1))},
+            {new CallFunction().setFunction(() -> bot.drive.drive(0, 0))},
 
 
             {new RandomMultiPosibility()},
@@ -30,7 +30,7 @@ public class SimpleAutonomous extends OpMode {
 
     @Override
     public void init() {
-        //auto.init(hardwareMap, bot, steps); //fixme i broke this to make it work
+        auto.init(hardwareMap, bot, steps);
     }
 
     @Override

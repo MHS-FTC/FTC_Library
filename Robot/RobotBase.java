@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Option;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTemplate;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SubSystem;
 
 import java.util.Collection;
@@ -16,7 +17,7 @@ import java.util.HashSet;
  * Main robot class that should be extended by all robot configurations
  */
 
-public class RobotBase {
+public abstract class RobotBase {
 
     private HashMap<String, SubSystem> subSystems = new HashMap<String, SubSystem>();
     private HashSet<String> needsTick = new HashSet<String>();
@@ -34,6 +35,8 @@ public class RobotBase {
     public SubSystem getSubSystem(String name){
         return subSystems.get(name);
     }
+
+    public abstract DriveSystemTemplate getDriveSystem();
 
     //registers all of the subsystems and prepares the robot
     public boolean init(HardwareMap hardwareMap) {
@@ -75,7 +78,7 @@ public class RobotBase {
      * Tick method that should be called in the tick method of {@link com.qualcomm.robotcore.eventloop.opmode.OpMode} to insure all submodules have a chance to update and get info from sensors and motors
      */
     public void tick() {
-        if(needsTick !=null && !needsTick.isEmpty()) {
+        if (needsTick != null && !needsTick.isEmpty()) {
             for (String s :
                     needsTick) {
                 SubSystem sub = subSystems.get(s);

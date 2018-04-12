@@ -4,7 +4,8 @@ import org.firstinspires.ftc.teamcode.FTC_API.Options;
 
 /**
  * Created by ethan.hampton on 11/2/2017.
- * This allows you to call a function in an autonomous program. Designed to work simplistically and easily
+ * This allows you to call a function in an autonomous program. Designed to work simplistically and easily.
+ * This passes though it's number in the array to keep things simple, you can reset it by calling <code>resetArrayPosition()</code> when building
  */
 
 public class CallFunction extends Module {
@@ -18,7 +19,7 @@ public class CallFunction extends Module {
     private Options options = new Options("Call Functions");
 
     public CallFunction setFunction(Command cmd) {
-        this.command = cmd;
+        command = cmd;
         return this;
     }
 
@@ -31,7 +32,6 @@ public class CallFunction extends Module {
     public void tick() {
 
     }
-
 
     @Override
     public Options options() {
