@@ -23,7 +23,6 @@ abstract public class AutonomousBase extends OpMode{
 
     protected void init(HardwareMap map, RobotBase robot, Module[][] steps) {
         robot.init(map);//starts and initializes the robot
-        robot.start();
         this.steps = steps;
         totalSteps = steps.length;
         //This was too hard

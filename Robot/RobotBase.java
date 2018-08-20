@@ -45,16 +45,9 @@ public abstract class RobotBase {
                 noErrors = false;
             }
         }
-        return noErrors;
-    }
 
-    //starts all subsystems
-    public void start() {
-        for (SubSystem s :
-                subSystems.values()) {
-            s.start();
-        }
-        startTime();
+        startTime();//start time keeping
+        return noErrors;
     }
 
     //called to stop all subsystems

@@ -12,9 +12,6 @@ public abstract class SubSystem {
 
     abstract public boolean init(HardwareMap hardwareDevices);
 
-    public void start() {
-    }
-
     public void stop() {
     }
 

@@ -17,7 +17,6 @@ public class SimpleTeleop extends OpMode{
     @Override
     public void init() {
         robot.init(hardwareMap);
-        robot.start();
     }
 
     @Override
