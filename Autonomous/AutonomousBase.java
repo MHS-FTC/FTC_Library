@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Autonomous;
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
@@ -11,9 +11,8 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
  * Base autonomous class that manages modules and running them on time
  */
 
-public class AutonomousBase {
+abstract public class AutonomousBase extends OpMode{
     public RobotBase robot;
-    private Telemetry telemetry = null;
     private Module[][] steps;
     private int currentStep = 0;//zero indexed
     private int currentPosition = 0;
@@ -22,7 +21,7 @@ public class AutonomousBase {
 
     private boolean isFirstLoop = true;
 
-    public void init(HardwareMap map, RobotBase robot, Module[][] steps) {
+    protected void init(HardwareMap map, RobotBase robot, Module[][] steps) {
         robot.init(map);//starts and initializes the robot
         robot.start();
         this.steps = steps;
@@ -31,7 +30,10 @@ public class AutonomousBase {
         this.robot = robot;
     }
 
+    abstract public void init();
+
     public void loop() {
+        tick();//run user code
         robot.tick();//ticks the robot automatically
 
         if (!isDone) {
@@ -67,13 +69,12 @@ public class AutonomousBase {
         }
     }
 
+    //can be overridden by the user to do stuff every loop
+    public void tick(){
+
+    }
+
     public RobotBase getRobot() {
         return robot;
     }
-
-    public AutonomousBase setTelemetry(Telemetry telemetry) {
-        this.telemetry = telemetry;
-        return this;
-    }
-
 }
