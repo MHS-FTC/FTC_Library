@@ -34,38 +34,6 @@ public class AutonomousBase {
     public void loop() {
         robot.tick();//ticks the robot automatically
 
-        /*
-        //way with async, don't really want to mess with this right now
-        for (Module m : currentlyRunning) {//loop through currently running modules
-            m.tick();
-            if (m.isDone()) {//if the current module is done
-                m.stop();//stop it
-                currentlyRunning.remove(m);//remove the module from the list of currently running modules
-            }
-        }
-
-        if (currentlyRunning.isEmpty()) {
-            currentStep++;
-            Collections.addAll(currentlyRunning, steps[currentStep]);//add all things to be done in async(or not) to the currently running list
-
-            //if we are trying to run more than one module at a time then make sure they are all compatible
-            // TODO: 9/3/17 Add checks to insure they are not using any of the same subsystems
-            if (currentlyRunning.size() > 1) {
-                for (Module m : currentlyRunning) {
-                    if (!m.options().get(Option.IS_ASYNC).equals("true")) {
-                        throw new UnsupportedOperationException("Module: " + m.options().getName() + " is not an ASYNC module and can not be run at the same time as other modules");
-                    }
-                }
-            }
-
-            //init and start all modules
-            for (Module m : currentlyRunning) {
-                m.init(robot);
-                m.start();
-            }
-        }
-        */
-
         if (!isDone) {
             //old way of doing things
             Module current = steps[currentStep][currentPosition];// loads current running module
