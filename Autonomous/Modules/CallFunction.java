@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
 
-import org.firstinspires.ftc.teamcode.FTC_API.Options;
-
 /**
  * Created by ethan.hampton on 11/2/2017.
  * This allows you to call a function in an autonomous program. Designed to work simplistically and easily.
@@ -16,7 +14,6 @@ public class CallFunction extends Module {
     }
 
     private Command command;
-    private Options options = new Options("Call Functions");
 
     public CallFunction setFunction(Command cmd) {
         command = cmd;
@@ -31,11 +28,6 @@ public class CallFunction extends Module {
     @Override
     public void tick() {
 
-    }
-
-    @Override
-    public Options options() {
-        return options;
     }
 
     @Override

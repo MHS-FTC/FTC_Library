@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.FTC_API.Options;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -10,30 +9,28 @@ import org.firstinspires.ftc.teamcode.FTC_API.Options;
  */
 
 class DriveTime extends Module {
-    private Options options = new Options("Drive For Time");
     private Drive drive;
     private boolean isDone = false;
     private double startTime;
+
+    private double leftSpeed;
+    private double rightSpeed;
+    private int driveTime;
 
     @Override
     public void start() {
         drive = (Drive) robot.getSubSystem(Drive.ID);
         startTime = robot.getTimeMilliseconds();
 
-        drive.drive(Double.valueOf(options.get("left_speed")), Double.valueOf(options.get("right_speed")));
+        drive.drive(leftSpeed, rightSpeed);
     }
 
     @Override
     public void tick() {
-        if ((robot.getTimeMilliseconds() - startTime) > Integer.getInteger(options.get("drive_time"))) {
+        if ((robot.getTimeMilliseconds() - startTime) > driveTime) {
             drive.drive(0, 0);
             isDone = true;
         }
-    }
-
-    @Override
-    public Options options() {
-        return options;
     }
 
     @Override
@@ -47,14 +44,14 @@ class DriveTime extends Module {
     }
 
 
-    public DriveTime setSpeeds(double leftSpeed, double rightSpeed) {
-        options.add("left_speed", String.valueOf(leftSpeed));
-        options.add("right_speed", String.valueOf(rightSpeed));
+    public DriveTime setSpeeds(double left, double right) {
+        leftSpeed = left;
+        rightSpeed = right;
         return this;
     }
 
     public DriveTime setTime(int time) {
-        options.add("drive_time", String.valueOf(time));
+        driveTime = time;
         return this;
     }
 }

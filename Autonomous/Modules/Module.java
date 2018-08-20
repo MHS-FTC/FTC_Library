@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.FTC_API.Options;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
 
 /**
@@ -66,10 +65,9 @@ public abstract class Module {
         return this;
     }
 
-    abstract public Options options();
-
+    @Deprecated
     public String ID() {
-        return options().getName();
+        return "";
     }
 
     protected boolean hasTelemetry() {

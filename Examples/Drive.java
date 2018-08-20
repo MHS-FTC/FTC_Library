@@ -3,8 +3,6 @@ package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
-
-import org.firstinspires.ftc.teamcode.FTC_API.Options;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTemplate;
 
 /**
@@ -14,22 +12,24 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTempla
  */
 
 public class Drive extends DriveSystemTemplate {
-    private Options options = new Options(ID);
     protected DcMotor leftMotor;
     protected DcMotor rightMotor;
+
+    private String leftMotorName;
+    private String rightMotorName;
 
     public static final String ID = "Drive";
 
     @Override
     public boolean init(HardwareMap hardwareDevices) {
-        leftMotor = hardwareDevices.dcMotor.get(options.get("leftMotor"));
-        rightMotor = hardwareDevices.dcMotor.get(options.get("rightMotor"));
+        leftMotor = hardwareDevices.dcMotor.get(leftMotorName);
+        rightMotor = hardwareDevices.dcMotor.get(rightMotorName);
         return true;
     }
 
     public Drive setMotorNames(String left, String right) {
-        options.add("leftMotor", left);
-        options.add("rightMotor", right);
+        leftMotorName = left;
+        rightMotorName = right;
         return this;
     }
 
@@ -42,11 +42,6 @@ public class Drive extends DriveSystemTemplate {
     public void drive(double leftPower, double rightPower) {
         leftMotor.setPower(leftPower);
         rightMotor.setPower(rightPower);
-    }
-
-    @Override
-    public Options options() {
-        return options;
     }
 
     @Override

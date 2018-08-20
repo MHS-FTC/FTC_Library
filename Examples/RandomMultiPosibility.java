@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
 import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.FTC_API.Options;
 
 import java.util.Random;
 
@@ -12,8 +11,6 @@ import java.util.Random;
  */
 
 class RandomMultiPosibility extends Module {
-    private Options options = new Options("Random");
-
     @Override
     public void start(){
 
@@ -27,11 +24,6 @@ class RandomMultiPosibility extends Module {
     public int stop(){
         //picks one of two next steps
         return new Random().nextInt(1);
-    }
-
-    @Override
-    public Options options() {
-        return options;
     }
 
     @Override

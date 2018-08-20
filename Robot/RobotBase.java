@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode.FTC_API.Robot;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.teamcode.FTC_API.Option;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTemplate;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SubSystem;
 
@@ -19,20 +17,20 @@ import java.util.HashSet;
 
 public abstract class RobotBase {
 
-    private HashMap<String, SubSystem> subSystems = new HashMap<String, SubSystem>();
-    private HashSet<String> needsTick = new HashSet<String>();
+    private HashMap<String, SubSystem> subSystems = new HashMap<>();
 
     private ElapsedTime time = new ElapsedTime();
 
     protected void addSubSystem(SubSystem sub) {
-        subSystems.put(sub.options().getName(), sub);
+        //if the ID class hasn't been overridden, then use class name, else use the ID
+        subSystems.put(sub.ID().equals("") ? sub.getClass().getSimpleName() : sub.ID(), sub);
     }
 
-    public Collection<SubSystem> getSubSystems(){
+    public Collection<SubSystem> getSubSystems() {
         return subSystems.values();
     }
 
-    public SubSystem getSubSystem(String name){
+    public SubSystem getSubSystem(String name) {
         return subSystems.get(name);
     }
 
@@ -42,15 +40,9 @@ public abstract class RobotBase {
     public boolean init(HardwareMap hardwareMap) {
         boolean noErrors = true;
         for (SubSystem s : subSystems.values()) {
-            s.setOptions();
-            s.init(hardwareMap);
-        }
-        for (SubSystem s : subSystems.values()) {
-            if (s.isFunctioning() && s.isInitialized()) {
-                if (s.options().get(Option.NEEDS_TICK).equals("true")) {
-                    needsTick.add(s.options().getName());
-                }
-            } else {
+            s.init(hardwareMap);//init each system
+
+            if (!s.isFunctioning() || !s.isInitialized()) {//insure all systems are ready to go
                 noErrors = false;
             }
         }
@@ -75,26 +67,27 @@ public abstract class RobotBase {
     }
 
     /**
-     * Tick method that should be called in the tick method of {@link com.qualcomm.robotcore.eventloop.opmode.OpMode} to insure all submodules have a chance to update and get info from sensors and motors
+     * Tick method that should be called in the tick method of {@link com.qualcomm.robotcore.eventloop.opmode.OpMode}
+     * to insure all submodules have a chance to update and get info from sensors and motors
+     *
+     * It may incur a slight performance disadvantage but shouldn't be too impacting
      */
     public void tick() {
-        if (needsTick != null && !needsTick.isEmpty()) {
-            for (String s :
-                    needsTick) {
-                SubSystem sub = subSystems.get(s);
-                sub.tick();
-            }
+        for (SubSystem s :
+                subSystems.values()) {
+            s.tick();
         }
-
     }
 
-    public void startTime(){
+    public void startTime() {
         time.startTime();
     }
-    public void resetTime(){
+
+    public void resetTime() {
         time.reset();
     }
-    public double getTimeMilliseconds(){
+
+    public double getTimeMilliseconds() {
         return time.milliseconds();
     }
 }
