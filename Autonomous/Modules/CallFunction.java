@@ -8,13 +8,16 @@ package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
 
 public class CallFunction extends Module {
     public interface Command {
-        //Ideally we override this method using lambda and then are able to execute it via autonomous stuff. This means
-        //we can run basically anything we can run in teleop in autonomous
         void apply();
     }
 
     private Command command;
 
+    /**
+     *
+     * @param cmd use lambda to execute any command needed
+     * @return this, used to chain
+     */
     public CallFunction setFunction(Command cmd) {
         command = cmd;
         return this;
@@ -38,10 +41,5 @@ public class CallFunction extends Module {
     @Override
     public boolean isDone() {
         return true;
-    }
-
-    @Override
-    public String[] requiredSubSystems() {
-        return new String[0];
     }
 }

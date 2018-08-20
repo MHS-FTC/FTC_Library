@@ -21,6 +21,12 @@ abstract public class AutonomousBase extends OpMode{
 
     private boolean isFirstLoop = true;
 
+    /**
+     * Initializes the Autonomous system
+     * @param map Hardware Map from FTC SDK
+     * @param robot The robot to use for this autonomous
+     * @param steps The list of steps to be run during this autonomous
+     */
     protected void init(HardwareMap map, RobotBase robot, Module[][] steps) {
         robot.init(map);//starts and initializes the robot
         this.steps = steps;
@@ -31,6 +37,10 @@ abstract public class AutonomousBase extends OpMode{
 
     abstract public void init();
 
+    /**
+     * This is called by FTC SDK and runs each module as well as some user code
+     */
+    @Override
     public void loop() {
         tick();//run user code
         robot.tick();//ticks the robot automatically
@@ -68,7 +78,10 @@ abstract public class AutonomousBase extends OpMode{
         }
     }
 
-    //can be overridden by the user to do stuff every loop
+    /**
+     * This is the method that should be overridden by the user to do stuff every loop.
+     * Is called by this class every "tick"
+     */
     public void tick(){
 
     }

@@ -21,6 +21,13 @@ public class RobotBase {
 
     private ElapsedTime time = new ElapsedTime();
 
+    /**
+     * Adds subsystem to tracking by the internal system. This means it will receive all events and updates as needed.
+     * It also will register the subsystem as the drive system if it uses that template. By default, the last subsystem added
+     * that extends {@link DriveSystemTemplate} is used as the drive system.
+     *
+     * @param sub the subsystem to add to the robot
+     */
     protected void addSubSystem(SubSystem sub) {
         String subID = sub.ID().equals("") ? sub.getClass().getSimpleName() : sub.ID();
         //if the ID class hasn't been overridden, then use class name, else use the ID
@@ -35,19 +42,33 @@ public class RobotBase {
         return subSystems.values();
     }
 
+    /**
+     * Gets subsystem by name (This could be the class name or the overridden value of {@link SubSystem#ID()})
+     * @param name name to find
+     * @return the subsystem
+     */
     public SubSystem getSubSystem(String name) {
         return subSystems.get(name);
     }
 
-    public DriveSystemTemplate getDriveSystem(){
-        if(!driveSystem.isEmpty()) {
+    /**
+     *
+     * @return the subsystem the implements {@link DriveSystemTemplate} for use in driving the robot
+     */
+    public DriveSystemTemplate getDriveSystem() {
+        if (!driveSystem.isEmpty()) {
             return (DriveSystemTemplate) subSystems.get(driveSystem);
-        }else{
+        } else {
             return null;
         }
     }
 
-    //registers all of the subsystems and prepares the robot
+    /**
+     * registers all of the subsystems and prepares the robot
+     *
+     * @param hardwareMap the hardware map from FTC SDK
+     * @return if there were no errors when initializing robot
+     */
     public boolean init(HardwareMap hardwareMap) {
         boolean noErrors = true;
         for (SubSystem s : subSystems.values()) {
@@ -62,7 +83,9 @@ public class RobotBase {
         return noErrors;
     }
 
-    //called to stop all subsystems
+    /**
+     * Called to stop all subsystems
+     */
     public void stop() {
         for (SubSystem s :
                 subSystems.values()) {
@@ -73,7 +96,7 @@ public class RobotBase {
     /**
      * Tick method that should be called in the tick method of {@link com.qualcomm.robotcore.eventloop.opmode.OpMode}
      * to insure all submodules have a chance to update and get info from sensors and motors
-     *
+     * <p>
      * It may incur a slight performance disadvantage but shouldn't be too impacting
      */
     public void tick() {
