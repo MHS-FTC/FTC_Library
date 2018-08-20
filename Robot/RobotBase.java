@@ -14,15 +14,21 @@ import java.util.HashMap;
  * Main robot class that should be extended by all robot configurations
  */
 
-public abstract class RobotBase {
+public class RobotBase {
 
     private HashMap<String, SubSystem> subSystems = new HashMap<>();
+    private String driveSystem = "";
 
     private ElapsedTime time = new ElapsedTime();
 
     protected void addSubSystem(SubSystem sub) {
+        String subID = sub.ID().equals("") ? sub.getClass().getSimpleName() : sub.ID();
         //if the ID class hasn't been overridden, then use class name, else use the ID
-        subSystems.put(sub.ID().equals("") ? sub.getClass().getSimpleName() : sub.ID(), sub);
+        subSystems.put(subID, sub);
+
+        if (sub instanceof DriveSystemTemplate) {
+            driveSystem = subID;
+        }
     }
 
     public Collection<SubSystem> getSubSystems() {
@@ -33,7 +39,13 @@ public abstract class RobotBase {
         return subSystems.get(name);
     }
 
-    public abstract DriveSystemTemplate getDriveSystem();
+    public DriveSystemTemplate getDriveSystem(){
+        if(!driveSystem.isEmpty()) {
+            return (DriveSystemTemplate) subSystems.get(driveSystem);
+        }else{
+            return null;
+        }
+    }
 
     //registers all of the subsystems and prepares the robot
     public boolean init(HardwareMap hardwareMap) {
@@ -71,11 +83,11 @@ public abstract class RobotBase {
         }
     }
 
-    public void startTime() {
+    private void startTime() {
         time.startTime();
     }
 
-    public void resetTime() {
+    protected void resetTime() {
         time.reset();
     }
 
