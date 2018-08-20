@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTemplate;
+import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.DriveSystemTempla
  * Simple Drive class that can be implemented and used
  */
 
-public class Drive extends DriveSystemTemplate {
+public class Drive extends SidedDriveSystemTemplate {
     protected DcMotor leftMotor;
     protected DcMotor rightMotor;
 
