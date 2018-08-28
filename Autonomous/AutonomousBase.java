@@ -64,7 +64,7 @@ abstract public class AutonomousBase extends OpMode {
 
                 if (currentStep <= totalSteps - 1) {//insures we have not gone through all our steps
                     int maxOption = steps[currentStep].length - 1;//get amount of modules currently available in the next step
-                    if (currentOption > maxOption || currentOption <= 0) {//check if next option is valid
+                    if (currentOption > maxOption || currentOption < 0) {//check if next option is valid
                         currentOption = 0;//otherwise use default of 0
                     }
 
