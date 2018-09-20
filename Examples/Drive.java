@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.FTC_API.Examples;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
 import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**
@@ -30,12 +29,6 @@ public class Drive extends SidedDriveSystemTemplate {
     public Drive setMotorNames(String left, String right) {
         leftMotorName = left;
         rightMotorName = right;
-        return this;
-    }
-
-    public Drive setMotorType(MotorConfigurationType type) {
-        leftMotor.setMotorType(type);
-        rightMotor.setMotorType(type);
         return this;
     }
 
