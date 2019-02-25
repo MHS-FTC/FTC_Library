@@ -20,6 +20,7 @@ public class RobotBase {
     private String driveSystem = "";
 
     private ElapsedTime time = new ElapsedTime();
+    private boolean firstLoop = true;//used to track if match has started
 
     /**
      * Adds subsystem to tracking by the internal system. This means it will receive all events and updates as needed.
@@ -99,6 +100,11 @@ public class RobotBase {
      * It may incur a slight performance disadvantage but shouldn't be too impacting
      */
     public void tick() {
+        //start time keeping
+        if(firstLoop){
+            firstLoop = false;
+            startTime();//start time keeping
+        }
         for (SubSystem s :
                 subSystems.values()) {
             s.tick();
@@ -113,7 +119,11 @@ public class RobotBase {
         time.reset();
     }
 
-    public double getTimeMilliseconds() {
-        return time.milliseconds();
+    /**
+     *
+     * @return returns time since first call of {@code tick()} method for this robot
+     */
+    public long getTimeMilliseconds() {
+        return (long) time.milliseconds();
     }
 }
