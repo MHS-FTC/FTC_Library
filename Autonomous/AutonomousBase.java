@@ -61,6 +61,7 @@ abstract public class AutonomousBase extends OpMode {
                 currentStep++;//get new module, start and initialize it
 
                 currentOption = current.stop();//stop current module and get what option the module wants for next step
+                int selectedOption = currentOption;//insure the selected option is passed through to next module even if that isn't the one selected
 
                 if (currentStep <= totalSteps - 1) {//insures we have not gone through all our steps
                     int maxOption = steps[currentStep].length - 1;//get amount of modules currently available in the next step
@@ -68,9 +69,9 @@ abstract public class AutonomousBase extends OpMode {
                         currentOption = 0;//otherwise use default of 0
                     }
 
-                    current = steps[currentStep][currentOption];
-                    current.init(robot, currentOption, telemetry);//initialize it with the passed through option so it can be passed through multiple times
-                    current.start();
+                    current = steps[currentStep][currentOption];//get new current module
+                    current.init(robot, selectedOption, telemetry);//initialize it with the passed through option so it can be passed through multiple times
+                    current.start();//start current module
                 } else {
                     isDone = true;
                 }
