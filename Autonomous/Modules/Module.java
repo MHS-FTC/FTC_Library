@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules;
+package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
+import org.firstinspires.ftc.teamcode.FTC_Library.Robot.RobotBase;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

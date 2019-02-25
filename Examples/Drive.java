@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.FTC_API.Examples;
+package org.firstinspires.ftc.teamcode.FTC_Library.Examples;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems.SidedDriveSystemTemplate;
+import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
+import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

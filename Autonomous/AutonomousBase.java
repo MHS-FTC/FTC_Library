@@ -1,9 +1,9 @@
-package org.firstinspires.ftc.teamcode.FTC_API.Autonomous;
+package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
-import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.FTC_API.Robot.RobotBase;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_Library.Robot.RobotBase;
 
 /**
  * Created by Ethan Hampton on 8/19/17.

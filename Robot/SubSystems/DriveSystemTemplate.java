@@ -1,7 +1,7 @@
-package org.firstinspires.ftc.teamcode.FTC_API.Robot.SubSystems;
+package org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.configuration.MotorConfigurationType;
+import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigurationType;
 
 /**
  * Created by ethan.hampton on 12/15/2017.

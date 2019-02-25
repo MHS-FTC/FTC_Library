@@ -1,10 +1,10 @@
-package org.firstinspires.ftc.teamcode.FTC_API.Examples;
+package org.firstinspires.ftc.teamcode.FTC_Library.Examples;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.AutonomousBase;
-import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.CallFunction;
-import org.firstinspires.ftc.teamcode.FTC_API.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.AutonomousBase;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.CallFunction;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
