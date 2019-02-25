@@ -3,4 +3,4 @@
 This is still in the development stages so expect this to improve as time goes on.
 
 ## To Install:
-Put all files and folders from the repository into a folder named FTC_API
+Put all files and folders from the repository into a folder named FTC_Library
