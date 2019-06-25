@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.AutonomousBase;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.CallFunction;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.DriveTime;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
 
 /**

@@ -1,6 +1,5 @@
-package org.firstinspires.ftc.teamcode.FTC_Library.Examples;
+package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules;
 
-import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**
@@ -9,9 +8,8 @@ import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSys
  * Simple drive for time module
  */
 
-class DriveTime extends Module {
+public class DriveTime extends Module {
     private SidedDriveSystemTemplate drive;
-    private boolean isDone = false;
     private double startTime;
 
     private double leftSpeed;
@@ -30,9 +28,9 @@ class DriveTime extends Module {
     public boolean tick() {
         if ((robot.getTimeMilliseconds() - startTime) > driveTime) {
             drive.driveTank(0, 0);
-            isDone = true;
+            return true;
         }
-        return isDone;
+        return false;
     }
 
     public DriveTime setSpeeds(double left, double right) {
