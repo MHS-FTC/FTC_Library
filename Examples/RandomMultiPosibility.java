@@ -26,11 +26,4 @@ class RandomMultiPosibility extends Module {
         //picks one of two next steps
         return new Random().nextInt(1);
     }
-
-    @Override
-    public String[] requiredSubSystems() {
-        return null;
-    }
-
-
 }
