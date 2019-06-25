@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.FTC_Library.Robot;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.DriveSystemTemplate;
+import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSystemTemplate;
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SubSystem;
 
 import java.util.Collection;
@@ -59,6 +60,18 @@ public class RobotBase {
     public DriveSystemTemplate getDriveSystem() {
         if (!driveSystem.isEmpty()) {
             return (DriveSystemTemplate) subSystems.get(driveSystem);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @return the subsystem the implements {@link DriveSystemTemplate} for use in driving the robot
+     */
+    public SidedDriveSystemTemplate getSidedDriveSystem() {
+        if (!driveSystem.isEmpty() && subSystems.get(driveSystem) instanceof SidedDriveSystemTemplate) {
+            return (SidedDriveSystemTemplate) subSystems.get(driveSystem);
         } else {
             return null;
         }
