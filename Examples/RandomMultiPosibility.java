@@ -17,18 +17,14 @@ class RandomMultiPosibility extends Module {
     }
 
     @Override
-    public void tick(){
+    public boolean tick(){
+        return true;
     }
 
     @Override
     public int stop(){
         //picks one of two next steps
         return new Random().nextInt(1);
-    }
-
-    @Override
-    public boolean isDone() {
-        return true;
     }
 
     @Override

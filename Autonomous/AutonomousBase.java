@@ -55,9 +55,9 @@ abstract public class AutonomousBase extends OpMode {
                 isFirstLoop = false;
             }
 
-            current.tick();//runs tick for current module
+            boolean currentIsDone = current.tick();//run the current module (the return type tells us if it is done)
 
-            if (current.isDone()) {//if the current module is done
+            if (currentIsDone) {//if the current module is done
                 currentStep++;//get new module, start and initialize it
 
                 currentOption = current.stop();//stop current module and get what option the module wants for next step

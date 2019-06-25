@@ -29,17 +29,7 @@ public class CallFunction extends Module {
     }
 
     @Override
-    public void tick() {
-
-    }
-
-    @Override
-    public String ID() {
-        return "Call Functions";
-    }
-
-    @Override
-    public boolean isDone() {
+    public boolean tick() {
         return true;
     }
 }

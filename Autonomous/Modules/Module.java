@@ -35,8 +35,9 @@ public abstract class Module {
 
     /**
      * Called every tick
+     * @return should return true when done with this module
      */
-    abstract public void tick();
+    abstract public boolean tick();
 
     //
 
@@ -93,7 +94,8 @@ public abstract class Module {
      *
      * @return true if module is done executing
      */
-    abstract public boolean isDone();
+    @Deprecated
+    public boolean isDone() {return true;}
 
     @Deprecated
     public String[] requiredSubSystems() {

@@ -26,23 +26,13 @@ class DriveTime extends Module {
     }
 
     @Override
-    public void tick() {
+    public boolean tick() {
         if ((robot.getTimeMilliseconds() - startTime) > driveTime) {
             drive.drive(0, 0);
             isDone = true;
         }
-    }
-
-    @Override
-    public boolean isDone() {
         return isDone;
     }
-
-    @Override
-    public String[] requiredSubSystems() {
-        return new String[]{Drive.ID};
-    }
-
 
     public DriveTime setSpeeds(double left, double right) {
         leftSpeed = left;
