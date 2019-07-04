@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
-import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Wait;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.Wait;
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.RobotBase;
 
 /**

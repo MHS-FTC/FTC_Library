@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules;
+package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade;
 
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**

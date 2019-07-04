@@ -1,4 +1,6 @@
-package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules;
+package org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade;
+
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
 
 /**
  * Created by Ethan Hampton on 24-Jun-2019.
