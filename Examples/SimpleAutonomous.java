@@ -22,7 +22,7 @@ public class SimpleAutonomous extends AutonomousBase {
             {new CallFunction().setFunction(() -> bot.drive.drive(0, 0))},
 
 
-            {new RandomMultiPosibility()},
+            {new RandomMultiPossibility()},
             {new DriveTime().setSpeeds(1, 1).setTime(2500), new DriveTime().setSpeeds(0.5, 1).setTime(500)},
     };
 

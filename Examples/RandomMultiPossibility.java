@@ -10,7 +10,7 @@ import java.util.Random;
  * Simple drive for time module
  */
 
-class RandomMultiPosibility extends Module {
+class RandomMultiPossibility extends Module {
     @Override
     public void start(){
 
