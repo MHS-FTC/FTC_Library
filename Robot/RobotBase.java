@@ -16,7 +16,12 @@ import java.util.HashMap;
  */
 
 public class RobotBase {
-
+    /**
+     * Try not to use the hardware map any more than you need it.
+     * If you do need it, it will do the job just fine
+     */
+    @Deprecated
+    public HardwareMap hardwareMap;
     private HashMap<String, SubSystem> subSystems = new HashMap<>();
     private String driveSystem = "";
 
@@ -93,6 +98,7 @@ public class RobotBase {
             }
         }
 
+        this.hardwareMap = hardwareMap;
         return noErrors;
     }
 
