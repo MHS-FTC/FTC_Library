@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.GyroSensor;
 
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.AutonomousBase;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.Debug;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.Gyroscope;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.PIDEncoderDrive;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.PIDEncoderDrive.PIDConfig;
@@ -29,6 +30,8 @@ public class AutonomousWithPIDControl extends AutonomousBase {
             {new PIDEncoderDrive().setDistances(12, 12).setConfig(config)},//go forward 12 inches
             {new Gyroscope().setTurn(90)},//turn 90 degrees to the right (right is positive, left is negative)
             {new PIDEncoderDrive().setDistances(12, 12).setConfig(config)},//go forward 12 inches
+            {new Debug().setMessage("Now done! This is an example of the debug module")},//This shows how the debug module can be used for
+            //attempting to debug the robot. It gives a good indication of where the robot is in time and what it might be doing
     };
 
 

@@ -17,7 +17,8 @@ public class Debug extends Module {
         return true;
     }
 
-    public void setMessage(String message) {
+    public Debug setMessage(String message) {
         this.message = message;
+        return this;
     }
 }
