@@ -1,11 +1,14 @@
-package org.firstinspires.ftc.teamcode.FTC_Library.Examples;
+package org.firstinspires.ftc.teamcode.FTC_Library.Examples.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.AutonomousBase;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.CallFunction;
-import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.DriveTime;
 import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Module;
+import org.firstinspires.ftc.teamcode.FTC_Library.Autonomous.Modules.Premade.DriveTime;
+import org.firstinspires.ftc.teamcode.FTC_Library.Examples.Autonomous.Modules.RandomMultiPossibility;
+import org.firstinspires.ftc.teamcode.FTC_Library.Examples.Robot.SimpleRobot;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
@@ -32,7 +35,7 @@ public class SimpleAutonomous extends AutonomousBase {
     }
 
     @Override
-    public void tick(){
+    public void tick() {
         telemetry.addLine("Wow this works!");
     }
 }

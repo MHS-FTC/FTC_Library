@@ -1,23 +1,23 @@
-package org.firstinspires.ftc.teamcode.FTC_Library.Examples;
+package org.firstinspires.ftc.teamcode.FTC_Library.Examples.Robot.Subsystems;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
 import org.firstinspires.ftc.teamcode.FTC_Library.Robot.SubSystems.SidedDriveSystemTemplate;
 
 /**
  * Created by Ethan Hampton on 8/19/17.
  * <p>
  * Simple Drive class that can be implemented and used
+ * This is all that is needed for two wheel drive of a robot
  */
 
 public class Drive extends SidedDriveSystemTemplate {
-    protected DcMotor leftMotor;
-    protected DcMotor rightMotor;
+    private DcMotor leftMotor;
+    private DcMotor rightMotor;
 
     private String leftMotorName;
     private String rightMotorName;
-
-    public static final String ID = "Drive";
 
     @Override
     public boolean init(HardwareMap hardwareDevices) {
